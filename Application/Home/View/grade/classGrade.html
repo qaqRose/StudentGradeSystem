@@ -1,0 +1,46 @@
+<extend name="Layout:base_index" />
+<block name="css"></block>
+<block name="content">
+	<nav class="breadcrumb">
+		<i class="Hui-iconfont">&#xe67f;</i>
+		首页 <span class="c-gray en">&gt;</span>
+	班级成绩 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
+	</nav>
+	<article class="cl pd-20 ">
+		<table class="table table-border table-bordered table-hover table-bg table-sort">
+			<tr class="text-c">
+				<th  width="25">id</th>
+				<th  width="125">课程名</th>
+				<th  width="125">专业</th>
+				<th  width="25">班级</th>
+				<th width="25">老师</th>
+				<th width="25">工号</th>
+				<th  width="75">平均成绩</th>
+				<th  width="75">最高成绩</th>
+				<th  width="75">最低成绩</th>
+				<th width="75">通过率</th>
+				<th  width="75">学分</th>
+
+			</tr>
+			<foreach name="list" item="vo">
+					<tr class="text-c">
+						<td>{$vo.c_id}</td>
+						<td>
+							<a href="{:U('grade/student?s_id='.$vo['id'])}">{$vo.course_name}</a>
+						</td>
+						<td>{$vo.major}</td>
+						<td>{$vo.class}</td>
+						<td>{$vo.teacher}</td>
+						<td>{$vo.tno}</td>
+						<td>{$vo.avg_grade}</td>
+						<td>{$vo.max_grade}</td>
+						<td>{$vo.min_grade}</td>
+						<td>{$vo.pass_rate}</td>
+						<td>{$vo.credit}</td>
+					</tr>
+			</foreach>
+
+		</table>
+	</article>
+</block>
+<block name="js"></block>

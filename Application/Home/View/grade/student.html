@@ -1,0 +1,41 @@
+<extend name="Layout:base_index" />
+<block name="css"></block>
+<block name="content">
+	<nav class="breadcrumb">
+		<i class="Hui-iconfont">&#xe67f;</i>
+		首页 <span class="c-gray en">&gt;</span>
+		学生所有成绩 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
+	</nav>
+
+	<article class="cl pd-20 ">
+
+		<div class="panel panel-default mb-15">
+			<div class="panel-header">{$so.name} 的所有科目成绩</div>
+			<div class="panel-body">
+				平均成绩为: {$avg|default=0}
+			</div>
+		</div>
+		<table class="table table-border table-bordered table-hover table-bg table-sort">
+			<tr class="text-c">
+				<th  width="125">课程名称</th>
+				<th  width="75">平时成绩</th>
+				<th  width="75">期末成绩</th>
+				<th  width="75">总评</th>
+				<th  width="75">学分</th>
+
+			</tr>
+			<foreach name="list" item="vo">
+					<tr class="text-c">
+						<td>{$vo.course_name}</td>
+						<td>{$vo.usual_score}</td>
+						<td>{$vo.final_score}</td>
+						<td>{$vo.totality}</td>
+						<td>{$vo.credit}</td>
+					</tr>
+			</foreach>
+
+		</table>
+
+	</article>
+</block>
+<block name="js"></block>

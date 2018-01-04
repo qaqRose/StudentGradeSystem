@@ -1,0 +1,96 @@
+<extend name="Layout:base_index" />
+<block name="css"></block>
+<block name="content">
+	<nav class="breadcrumb">
+		<i class="Hui-iconfont">&#xe67f;</i>
+		首页 <span class="c-gray en">&gt;</span>
+		录入成绩信息 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
+	</nav>
+
+	 <div class="Hui-article" >
+		 <article class="cl pd-20 " style="width:440px;">
+			<table class="table table-border table-bordered table-bg mt-20">
+					<thead>
+						<tr>
+							<th colspan="2" scope="col">录入成绩信息</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+									<td>课程id</td>
+									<td>{$id}</td>
+						</tr>
+						<tr>
+									<td>课程名称</td>
+									<td>{$bo.course_name}</td>
+						</tr>
+						<tr>
+									<td>学分</td>
+									<td>{$bo.credit}</td>
+						</tr>
+						<tr>
+									<td>老师</td>
+									<td>{$bo.teacher}</td>
+						</tr>
+						<tr>
+									<td>专业名称</td>
+									<td>{$bo.major}</td>
+						</tr>
+					</tbody>
+			</table>
+ 		</article>
+		<article class="cl pd-20 ">
+			<table class="table table-border table-bordered table-hover table-bg table-sort">
+				<tr class="text-c">
+					<th  width="25">id</th>
+					<th  width="125">姓名</th>
+					<th  width="125">专业</th>
+					<th  width="25">班级</th>
+					<th  width="125">平时成绩</th>
+					<th  width="125">期末成绩</th>
+					<th  width="25">总评</th>
+					<th  width="25">学分</th>
+					<th  width="125">操作</th>
+				</tr>
+				<foreach name="list" item="vo">
+					<form id="grade_form_id_{$vo.id}" class="" action="{:U('grade/addCheck')}" method="post">
+						<input type="hidden" name="c_id" value="{$id}">
+						<input type="hidden" name="s_id" value="{$vo.id}">
+						<input type="hidden" name="is_base" value="{$is_base}">
+						<input type="hidden" name="course_name" value="{$bo.course_name}">
+
+					<tr  class="text-c">
+							<td>{$vo.id}</td>
+							<td>{$vo.name}</td>
+							<td>{$vo.major}</td>
+							<td>{$vo.class}</td>
+							<td>
+								<input check="score" msg="成绩错误" class="input-text" type="text" name="usual_score" value="{$vo.usual_score}" >
+							</td>
+							<td>
+								<input check="score" msg="成绩错误" type="text" class="input-text"  name="final_score" value="{$vo.final_score}" >
+							</td>
+							<td>{$vo.totality}</td>
+							<td>{$vo.credit}</td>
+							<td>
+								<button class="btn btn-default" type="submit" name="button" value="delete">删除</button>
+								<button class="btn btn-default" type="button" onclick="add('grade_form_id_{$vo.id}')">提交</button>
+							</td>
+						</tr>
+					</form>
+				</foreach>
+			</table>
+	 	</article>
+
+
+ 	</div>
+</block>
+<block name="js">
+	<script type="text/javascript">
+			function add(form_id) {
+					sendForm(form_id);
+			}
+	</script>
+
+
+</block>

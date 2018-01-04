@@ -1,0 +1,62 @@
+<extend name="Layout:base_index" />
+<block name="css"></block>
+<block name="content">
+		<nav class="breadcrumb">
+			<i class="Hui-iconfont">&#xe67f;</i>
+			首页 <span class="c-gray en">&gt;</span>
+			增加学生信息 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
+		</nav>
+		<article class="cl pd-20" style="width:440px; margin:0 auto;">
+
+	    <form action="{:U('Student/addCheck')}" method="post" class="form form-horizontal" id="form-member-add">
+
+
+	     <div class="row cl">
+	       <label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span>学号</label>
+	       <div class="formControls col-xs-8 col-sm-9">
+	         <input type="text" name="no" value="" class="input-text" placeholder="">
+	       </div>
+	     </div>
+	     <div class="row cl">
+	       <label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span>姓名</label>
+	       <div class="formControls col-xs-8 col-sm-9">
+	         <input type="text" name="name" value="" class="input-text" placeholder="">
+	       </div>
+	     </div>
+	     <div class="row cl">
+	       <label class="form-label col-xs-4 col-sm-3">性别</label>
+	       <div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
+	         <select class="select" size="1" name="sex">
+	           <option value="男">男</option>
+	            <option value="女">女</option>
+	          </select>
+	         </span> </div>
+	     </div>
+	     <div class="row cl">
+	       <label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span>班级</label>
+	       <div class="formControls col-xs-8 col-sm-9">
+	         <input type="text" name="class" value="" class="input-text"  placeholder="">
+	       </div>
+	     </div>
+	     <div class="row cl">
+	       <label class="form-label col-xs-4 col-sm-3">专业</label>
+	       <div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
+	         <select class="select" size="1" name="major">
+	           <option value="" selected>请选择专业</option>
+	           <option value="网络工程">网络工程</option>
+	            <option value="物联网">物联网</option>
+	            <option value="计算机科学与技术">计算机科学与技术</option>
+	            <option value="通信工程">通信工程</option>
+	            <option value="电子信息工程">电子信息工程</option>
+	         </select>
+	         </span> </div>
+	     </div>
+	     <div class="row cl">
+	       <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+	         <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+	       </div>
+	     </div>
+	   </form>
+  	</article>
+</block>
+<block name="js"></block>

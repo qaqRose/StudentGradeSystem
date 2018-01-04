@@ -1,0 +1,36 @@
+<extend name="Layout:base_index" />
+<block name="css"></block>
+<block name="content">
+	<nav class="breadcrumb">
+      <i class="Hui-iconfont">&#xe67f;</i>
+			首页 <span class="c-gray en">&gt;</span>
+			成绩录入 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" >
+				<i class="Hui-iconfont">&#xe68f;</i></a>
+	</nav>
+	<div class="Hui-article">
+		<article class="cl pd-20">
+			<div class="">
+				<h3 class="list-group-item">录入成绩信息 <small>选择课程</small></h3>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-header">基础课程</div>
+				<div class="panel-body">
+					<foreach name="b_list" item="vo">
+						<li><a class="list-group-item" href="{:U('grade/add?base=1&bc_id='.$vo['bc_id'])}">{$vo.course_name}</a></li>
+					</foreach>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-header">选修课程</div>
+				<div class="panel-body">
+					<foreach name="list" item="vo">
+						<li>
+							<a class="list-group-item" href="{:U('grade/add?base=0&c_id='.$vo['c_id'])}">{$vo.course_name}</a>
+						</li>
+					 </foreach>
+				</div>
+			</div>
+		</article>
+	</div>
+</block>
+<block name="js"></block>
