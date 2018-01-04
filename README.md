@@ -10,4 +10,12 @@
 
 1. 导入sql文件 grade.sql , 修改TP数据库配置
 2. 使用账号 1 密码 123 登录
- 
+
+
+
+###  界面
+
+![image](main.png)   
+
+
+![image](grade.png)   
